@@ -26,7 +26,7 @@ python local.py
 ## 1. Run MediaMtx
 
 ```bash
-cd mediamtx
+cd mediamtx_linux
 ./mediamtx
 ```
 
