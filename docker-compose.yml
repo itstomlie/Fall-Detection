@@ -1,0 +1,44 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+  mediamtx:
+    image: bluenviron/mediamtx:latest
+    container_name: mediamtx
+    volumes:
+      - ./mediamtx/mediamtx.yml:/mediamtx.yml
+    command: mediamtx /mediamtx.yml
+    ports:
+      - "8554:8554"
+      - "8888:8888" # If you need the admin interface
+    restart: unless-stopped
+
+  ffmpeg:
+    image: jrottenberg/ffmpeg:latest
+    container_name: ffmpeg
+    volumes:
+      - ./examples:/examples
+    depends_on:
+      - mediamtx
+    entrypoint: >
+      /bin/sh -c "
+      while ! nc -z mediamtx 8554; do
+        echo 'Waiting for MediaMtx to be ready...';
+        sleep 2;
+      done;
+      ffmpeg -re -stream_loop -1 -i /examples/fall_detection_1.mp4 -c copy -f rtsp rtsp://mediamtx:8554/mystream
+      "
+    restart: unless-stopped
+
+  app:
+    build: ./app
+    container_name: app
+    depends_on:
+      - mediamtx
+      - ffmpeg
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./app:/app
+    restart: unless-stopped
