@@ -9,12 +9,24 @@ Welcome to my fall-detection-model documentation. Below, you can find two sectio
 
 > (Roboflow inference does not work on python 3.12)
 
-If you're using pyenv:
+If you're using **pyenv**:
 
 ```bash
-pyenv install 3.11.4
-pyenv local 3.11.4
-eval "$(pyenv init -)"
+pyenv install --list
+```
+
+then install any python version <= 3.11.4
+
+```bash
+pyenv install <Python_Version>
+pyenv local <Python_Version>
+```
+
+If you're using **conda**:
+
+```bash
+conda activate my_env
+conda install python=3.11.4
 ```
 
 ## 2. Install dependencies and run rtsp.py
@@ -23,6 +35,11 @@ eval "$(pyenv init -)"
 pip install -r ./requirements.txt
 python local.py
 ```
+
+**Notes**
+
+> If you encounter "dll load failed while importing \_cext the specified module could not be found", run the following command:
+> `pip install msvc-runtime`
 
 </details>
 
@@ -51,22 +68,10 @@ Mac
 brew install ffmpeg
 ```
 
-windows
+Windows
 
 ```
-https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-gpl.zip
-```
-
-linux64
-
-```
-https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linux64-gpl.tar.xz
-```
-
-linux-arm64
-
-```
-https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-linuxarm64-gpl.tar.xz
+https://www.wikihow.com/Install-FFmpeg-on-Windows
 ```
 
 ## 3. (New Terminal) Run ffmpeg command (Required ffmpeg to be installed)
@@ -79,12 +84,17 @@ ffmpeg -re -stream_loop -1 -i "./examples/fall_detection_1.mp4" -c copy -f rtsp 
 
 > (Roboflow inference does not work on python 3.12)
 
-If you're using pyenv:
+If you're using **pyenv**:
 
 ```bash
-pyenv install 3.11.4
-pyenv local 3.11.4
-eval "$(pyenv init -)"
+pyenv install --list
+```
+
+then install any python version <= 3.11.4
+
+```bash
+pyenv install <Python_Version>
+pyenv local <Python_Version>
 ```
 
 ## 4. Install dependencies and run rtsp.py
