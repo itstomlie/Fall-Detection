@@ -1,4 +1,4 @@
-# 🤖 Welcome to my fall-detection-model documentation! 🤖
+# 🤖 Welcome to my fall-detection-model documentation!
 
 ## About
 
