@@ -1,4 +1,4 @@
-# Welcome to my fall-detection-model documentation.
+# 🤖 Welcome to my fall-detection-model documentation! 🤖
 
 ## About
 
@@ -118,3 +118,13 @@ python rtsp.py
 ```
 
 </details>
+
+## Results Examples
+
+## Model Performance
+
+| Metric                        | Value   |
+| ----------------------------- | ------- |
+| f1@0.553 confidence threshold | 0.83    |
+| mAP@0.5                       | 0.87236 |
+| mAP@0.5:0.95                  | 0.53714 |
