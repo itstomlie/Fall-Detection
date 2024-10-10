@@ -4,8 +4,6 @@
 
 This Model is designed to detect falls and sends an alert in real-time using a camera feed. It is built using [Roboflow Inference](https://inference.roboflow.com/) and trained on the latest [YOLOv11s](https://docs.ultralytics.com/models/yolo11/) model.
 
----
-
 ## Usage
 
 This model could be used in two ways:
@@ -16,7 +14,7 @@ This model could be used in two ways:
 **Click to expand each section for further details**
 
 <details>
-  <summary><strong><span style="font-size: 24px;">Local (Easier to run)</span></strong></summary>
+  <summary><strong><span style="font-size: 18px;">Local (Easier to run)</span></strong></summary>
 
 ### 1. Skip this step, if on `python --version` < 3.12
 
@@ -57,7 +55,7 @@ python local.py
 </details>
 
 <details>
-  <summary><strong><span style="font-size: 24px;">Simulate-RTSP</span></strong></summary>
+  <summary><strong><span style="font-size: 18px;">Simulate-RTSP</span></strong></summary>
 
 ### 1. Run MediaMtx depending on your system
 
@@ -110,7 +108,14 @@ pyenv install <Python_Version>
 pyenv local <Python_Version>
 ```
 
-### 4. Install dependencies and run rtsp.py
+If you're using **conda**:
+
+```bash
+conda activate my_env
+conda install python=3.11.4
+```
+
+### 5. Install dependencies and run rtsp.py
 
 ```bash
 pip install -r ./requirements.txt
@@ -121,6 +126,8 @@ python rtsp.py
 
 ## Results Examples
 
+---
+
 <img src="./examples/fall_example1.png" width="700" height="400" />
 <img src="./examples/fall_example2.png" width="700" height="400" />
 <img src="./examples/fall_example5.png" width="700" height="400" />
@@ -129,6 +136,8 @@ python rtsp.py
 <img src="./examples/val_batch2_pred.jpg" width="900" height="600" />
 
 ## Model Performance
+
+---
 
 <img src="./results/confusion_matrix_normalized.png" width="700" height="400" />
 <img src="./results/F1_curve.png" width="700" height="400" />
