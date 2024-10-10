@@ -1,13 +1,26 @@
-# Project Documentation
+# Welcome to my fall-detection-model documentation.
 
-Welcome to my fall-detection-model documentation. Below, you can find two sections: "Without RTSP" and "With RTSP." Click to expand each section for further details.
+## About
+
+This Model is designed to detect falls and sends an alert in real-time using a camera feed. It is built using [Roboflow Inference](https://inference.roboflow.com/) and trained on the latest [YOLOv11s](https://docs.ultralytics.com/models/yolo11/) model.
+
+---
+
+## Usage
+
+This model could be used in two ways:
+
+- **Local**: Run the model on your local machine using a video file.
+- **RTSP**: Run the model on your local machine using a simulated RTSP stream.
+
+**Click to expand each section for further details**
 
 <details>
-  <summary><strong><span style="font-size: 24px;">Without RTSP (Easier to run)</span></strong></summary>
+  <summary><strong><span style="font-size: 24px;">Local (Easier to run)</span></strong></summary>
 
-## 1.If on `python --version` <= 3.11, skip this step
+### 1. Skip this step, if on `python --version` < 3.12
 
-> (Roboflow inference does not work on python 3.12)
+> (Roboflow inference currently does not work on python 3.12)
 
 If you're using **pyenv**:
 
@@ -15,7 +28,7 @@ If you're using **pyenv**:
 pyenv install --list
 ```
 
-then install any python version <= 3.11.4
+then install any python version < 3.12
 
 ```bash
 pyenv install <Python_Version>
@@ -29,7 +42,7 @@ conda activate my_env
 conda install python=3.11.4
 ```
 
-## 2. Install dependencies and run rtsp.py
+### 2. Install dependencies and run rtsp.py
 
 ```bash
 pip install -r ./requirements.txt
@@ -44,9 +57,9 @@ python local.py
 </details>
 
 <details>
-  <summary><strong><span style="font-size: 24px;">With RTSP</span></strong></summary>
+  <summary><strong><span style="font-size: 24px;">Simulate-RTSP</span></strong></summary>
 
-## 1. Run MediaMtx depending on your system
+### 1. Run MediaMtx depending on your system
 
 ```bash
 cd mediamtx_linux
@@ -58,7 +71,7 @@ cd mediamtx_windows
 ./mediamtx
 ```
 
-## 2. If you have ffmpeg in your system, skip this step
+### 2. If you have ffmpeg in your system, skip this step
 
 > I provided the ffmpeg installation files for each system
 
@@ -74,15 +87,15 @@ Windows
 https://www.wikihow.com/Install-FFmpeg-on-Windows
 ```
 
-## 3. (New Terminal) Run ffmpeg command (Required ffmpeg to be installed)
+### 3. (New Terminal) Run ffmpeg command (Required ffmpeg to be installed)
 
 ```bash
 ffmpeg -re -stream_loop -1 -i "./examples/fall_detection_1.mp4" -c copy -f rtsp rtsp://localhost:8554/mystream
 ```
 
-## 4. (New Terminal) If on `python --version` <= 3.11, skip this step
+### 4. (New Terminal) Skip this step, if on `python --version` < 3.12
 
-> (Roboflow inference does not work on python 3.12)
+> (Roboflow inference currently does not work on python 3.12)
 
 If you're using **pyenv**:
 
@@ -90,14 +103,14 @@ If you're using **pyenv**:
 pyenv install --list
 ```
 
-then install any python version <= 3.11.4
+then install any python version < 3.12
 
 ```bash
 pyenv install <Python_Version>
 pyenv local <Python_Version>
 ```
 
-## 4. Install dependencies and run rtsp.py
+### 4. Install dependencies and run rtsp.py
 
 ```bash
 pip install -r ./requirements.txt
