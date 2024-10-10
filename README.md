@@ -71,7 +71,7 @@ cd mediamtx_windows
 ./mediamtx
 ```
 
-### 2. If you have ffmpeg in your system, skip this step
+### 2. Skip this step, if you already have ffmpeg in your system
 
 > I provided the ffmpeg installation files for each system
 
@@ -121,7 +121,19 @@ python rtsp.py
 
 ## Results Examples
 
+<img src="./examples/fall_example1.png" width="700" height="400" />
+<img src="./examples/fall_example2.png" width="700" height="400" />
+<img src="./examples/fall_example5.png" width="700" height="400" />
+<img src="./examples/fall_example6.png" width="700" height="400" />
+<img src="./examples/val_batch1_pred.jpg" width="900" height="600" />
+<img src="./examples/val_batch2_pred.jpg" width="900" height="600" />
+
 ## Model Performance
+
+<img src="./results/confusion_matrix_normalized.png" width="700" height="400" />
+<img src="./results/F1_curve.png" width="700" height="400" />
+<img src="./results/PR_curve.png" width="700" height="400" />
+<img src="./results/results.png" width="700" height="400" />
 
 | Metric                        | Value   |
 | ----------------------------- | ------- |
